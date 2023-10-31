@@ -7,7 +7,8 @@ class Solution:
         area=0
         for i in range(r):
             for j in range(c):
-                area=max(area,self.dfs(i,j,grid,r,c,visit))
+                if(grid[i][j] == 1):
+                    area=max(area,self.dfs(i,j,grid,r,c,visit))
         return area
     
     def dfs(self,i,j,grid,r,c,visit):
