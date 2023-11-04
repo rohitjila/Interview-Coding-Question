@@ -28,16 +28,31 @@ class Solution:
         #O(n) + O(n)
         #O(n) + O(n)
         
+        # mp = defaultdict(lambda : 0)
+        # mp1 = defaultdict(lambda : 0)
+        # for i in s:
+        #     mp[i]+=1
+        # for i in t:
+        #     mp1[i]+=1
+        # if (mp == mp1):
+        #     return True
+        # else:
+        #     return False
+        
         mp = defaultdict(lambda : 0)
-        mp1 = defaultdict(lambda : 0)
         for i in s:
-            mp[i]+=1
+            mp[i] +=1
+        print(mp)
         for i in t:
-            mp1[i]+=1
-        if (mp == mp1):
+            mp[i] -=1
+            if(mp[i] == 0):
+                del mp[i]
+        if(len(mp) == 0):
             return True
         else:
             return False
+            
+        
             
         
         
