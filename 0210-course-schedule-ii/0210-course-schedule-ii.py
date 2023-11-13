@@ -7,9 +7,6 @@ class Solution:
         
         ans1=[]
         ans=[]
-        # for i in ans:
-        #     if i not in ans1:
-        #         ans1.append(i)
         
         flag = 0
         for i in range(numCourses):
@@ -39,5 +36,3 @@ class Solution:
         adj[node] = []
         ans.append(node)
         return True
-        
-        
