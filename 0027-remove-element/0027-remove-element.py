@@ -13,4 +13,12 @@ class Solution:
                 nums[index] = nums[i]
                 index+=1
         return index
+    
+       #same approach hai dekho kon sa element ko remove nahi karna hai
+       #usko aage kardo aur ek pointer se update karo jo number ko remove nahi karna hai
+       #wo peeche reh jayega hmlog ka index wohi tak point karega jo number ko consider
+       #karna hai.
+    
+      # T.C -> O(n)
+      # S.C --> O(1)
         
