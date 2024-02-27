@@ -22,5 +22,10 @@ class Solution:
         for i in mp:
             if(mp[i] > 2): return False
         return True
+      
+        #t.c => O(n)
+        #s.c => O(1)
+        
+        
     
         
