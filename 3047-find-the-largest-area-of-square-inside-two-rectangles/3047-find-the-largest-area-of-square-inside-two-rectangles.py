@@ -13,5 +13,14 @@ class Solution:
                     side = min(maxX - minX,maxY - minY)
                     area = max(area,side*side)
         return area
+    
+    
+#     Isme sabse pehle kya karna tha ki intersection nikalna tha aur uske liye jo formula hota hai
+#     kabhi bhi intersection nikalna ho to line 7 - 10 of code hai aur excel sheet me maintained hai
+#     hai ki kaise nikale phir hmlog check kiye ki kya ye rectangle form kar raha hai ki nahi
+#     agar manlo maxX co-ordinate minX se bada ho jaye to ye valid nahi hai to agar valid hoga 
+#     tabhi rectangle hoga phir rectangle ka min side nikal le lenge kyuki usi ka side ka square 
+#     banega aur phir hmlog area of square calculate kar lenge thik aur pure array me jo maximum
+#     area of square hoga usko return kar denge.
                 
         
