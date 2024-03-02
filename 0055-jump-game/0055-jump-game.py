@@ -4,8 +4,6 @@ class Solution:
         farest = 0
         for i in range(n):
             if(farest < i): return False
-            farest = max(i + nums[i], farest);
-            print(farest)
-    
+            farest = max(i + nums[i], farest)
         return True
         
