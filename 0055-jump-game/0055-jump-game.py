@@ -1,9 +1,9 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         n = len(nums)
-        farest = 0
-        for i in range(n):
-            if(farest < i): return False
-            farest = max(i + nums[i], farest)
+        farthestPoint = 0
+        for current in range(n):
+            if(farthestPoint < current): return False
+            farthestPoint = max(current + nums[current],farthestPoint)
         return True
         
