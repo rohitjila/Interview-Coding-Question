@@ -1,28 +1,54 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         n = len(coins)
-        dp = [[-1 for i in range(amount+1)] for i in range(n)]
-        ind = n - 1
-        ans = self.f(coins,ind,amount,dp)
-        if(ans == 1e9): return -1
-        else: return ans
-
-    def f(self,coins,ind,amount,dp):
-        if(ind == 0):
-            if(amount % coins[0] == 0): return amount // coins[0]
+        #convert this memoization into tabulation
+        dp = [[0 for i in range(amount+1)] for i in range(n)]
+        #change the base case
+        for ind in range(amount+1):
+            if(ind % coins[0] == 0):
+                dp[0][ind] = ind // coins[0]
             else:
-                return 1e9
-        if(dp[ind][amount] != -1):
-            return dp[ind][amount]
-        #base case
-        #pick
-        pick = 1e9
-        if(coins[ind] <= amount):
-            pick = 1 + self.f(coins,ind,amount-coins[ind],dp)
-        #notPick
-        notPick = 0 + self.f(coins,ind-1,amount,dp)
-        dp[ind][amount] = min(pick,notPick)
-        return dp[ind][amount]
+                dp[0][ind] = 1e9
+        #convert into for loops
+        for ind in range(1,n):
+            for target in range(0,amount+1):
+                #now copy paste as it is
+                pick = 1e9
+                if(coins[ind] <= target):
+                    pick = 1 + dp[ind][target-coins[ind]]
+                notPick = 0 + dp[ind-1][target]
+                dp[ind][target] = min(pick,notPick)
+        ans =  dp[n-1][amount]
+        if (ans == 1e9):
+            return -1
+        return ans
+        
+        
+        
+        
+        
+        
+        # ind = n - 1
+        # ans = self.f(coins,ind,amount,dp)
+        # if(ans == 1e9): return -1
+        # else: return ans
+
+    # def f(self,coins,ind,amount,dp):
+    #     if(ind == 0):
+    #         if(amount % coins[0] == 0): return amount // coins[0]
+    #         else:
+    #             return 1e9
+    #     if(dp[ind][amount] != -1):
+    #         return dp[ind][amount]
+    #     #base case
+    #     #pick
+    #     pick = 1e9
+    #     if(coins[ind] <= amount):
+    #         pick = 1 + self.f(coins,ind,amount-coins[ind],dp)
+    #     #notPick
+    #     notPick = 0 + self.f(coins,ind-1,amount,dp)
+    #     dp[ind][amount] = min(pick,notPick)
+    #     return dp[ind][amount]
     
     
     
