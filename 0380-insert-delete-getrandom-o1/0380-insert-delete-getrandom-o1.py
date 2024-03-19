@@ -1,3 +1,4 @@
+from random import choice
 class RandomizedSet:
 
     def __init__(self):
@@ -19,8 +20,10 @@ class RandomizedSet:
         
 
     def getRandom(self) -> int:
-        random_value = random.choice(tuple(self.s))
-        return random_value
+        random_values = choice(tuple(self.s))
+        return random_values
+        #to get the randon_value from set we have to import random then call random.choice and convert the 
+        #set into tuple because choice only works with tuples in this way we can get the random values.
         
 
 
